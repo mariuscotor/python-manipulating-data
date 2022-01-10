@@ -44,7 +44,7 @@ df = df.drop(1999)
 df["East"] = df["East"].astype(int)
 df["West"] = df["West"].astype(int)
 
-df["Difference"] = df["East"].sub(df["West"], axis=0)
+df["Difference"] = abs(df["East"].sub(df["West"], axis=0))
 
 groupedDf = df.groupby(["Difference"]).count()
 groupedDf = groupedDf.drop(columns="Host city")
